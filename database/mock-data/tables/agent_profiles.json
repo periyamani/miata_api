@@ -1,0 +1,20 @@
+[
+  {
+    "user_id": 2,
+    "referral_code": "AGT5ADQ7",
+    "organization": "Sonography Careers Pvt Ltd",
+    "city": "Chennai",
+    "country": "India",
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "user_id": 3,
+    "referral_code": "AGTGL8G6",
+    "organization": "Global Health Education",
+    "city": "Kochi",
+    "country": "India",
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  }
+]

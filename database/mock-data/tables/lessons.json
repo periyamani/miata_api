@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "module_id": 1,
+    "title": "Sound wave principles",
+    "content": "Study notes for “Sound wave principles”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 2,
+    "module_id": 1,
+    "title": "Transducers and beam formation",
+    "content": "Study notes for “Transducers and beam formation”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 3,
+    "module_id": 1,
+    "title": "Image optimisation and artefacts",
+    "content": "Study notes for “Image optimisation and artefacts”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 3,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 4,
+    "module_id": 2,
+    "title": "Liver, gallbladder and biliary tree",
+    "content": "Study notes for “Liver, gallbladder and biliary tree”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 5,
+    "module_id": 2,
+    "title": "Pancreas, spleen and kidneys",
+    "content": "Study notes for “Pancreas, spleen and kidneys”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 6,
+    "module_id": 2,
+    "title": "Abdominal vasculature",
+    "content": "Study notes for “Abdominal vasculature”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 3,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 7,
+    "module_id": 3,
+    "title": "First-trimester assessment",
+    "content": "Study notes for “First-trimester assessment”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 8,
+    "module_id": 3,
+    "title": "Fetal biometry and anatomy survey",
+    "content": "Study notes for “Fetal biometry and anatomy survey”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 9,
+    "module_id": 3,
+    "title": "Transvaginal ultrasound techniques",
+    "content": "Study notes for “Transvaginal ultrasound techniques”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 3,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 10,
+    "module_id": 4,
+    "title": "Doppler physics",
+    "content": "Study notes for “Doppler physics”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 11,
+    "module_id": 4,
+    "title": "Carotid and peripheral arterial studies",
+    "content": "Study notes for “Carotid and peripheral arterial studies”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 12,
+    "module_id": 4,
+    "title": "Venous duplex imaging",
+    "content": "Study notes for “Venous duplex imaging”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 3,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 13,
+    "module_id": 5,
+    "title": "Structured report writing",
+    "content": "Study notes for “Structured report writing”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 14,
+    "module_id": 5,
+    "title": "Clinical communication",
+    "content": "Study notes for “Clinical communication”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 15,
+    "module_id": 5,
+    "title": "Ethics and patient safety",
+    "content": "Study notes for “Ethics and patient safety”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 3,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 16,
+    "module_id": 6,
+    "title": "Departmental protocols",
+    "content": "Study notes for “Departmental protocols”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 17,
+    "module_id": 6,
+    "title": "Patient preparation and positioning",
+    "content": "Study notes for “Patient preparation and positioning”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 18,
+    "module_id": 7,
+    "title": "Logbook requirements",
+    "content": "Study notes for “Logbook requirements”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 19,
+    "module_id": 7,
+    "title": "Interventional ultrasound exposure",
+    "content": "Study notes for “Interventional ultrasound exposure”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 20,
+    "module_id": 8,
+    "title": "Competency assessment",
+    "content": "Study notes for “Competency assessment”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 21,
+    "module_id": 8,
+    "title": "Reflective practice",
+    "content": "Study notes for “Reflective practice”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 22,
+    "module_id": 9,
+    "title": "Physics review",
+    "content": "Study notes for “Physics review”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 23,
+    "module_id": 9,
+    "title": "Instrumentation review",
+    "content": "Study notes for “Instrumentation review”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 2,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 24,
+    "module_id": 10,
+    "title": "Abdomen and OB/GYN specialty review",
+    "content": "Study notes for “Abdomen and OB/GYN specialty review”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 25,
+    "module_id": 11,
+    "title": "Timed mock exam and debrief",
+    "content": "Study notes for “Timed mock exam and debrief”. Review the lecture video and the reading list before attempting the module assignment.",
+    "duration_minutes": 45,
+    "position": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "key": "completion_policy",
+    "value": {
+      "requireAllVideos": true,
+      "logoutOnCompletion": true,
+      "videoWatchThreshold": 90,
+      "requireAllAssignments": true,
+      "passwordResetOnCompletion": "next_login"
+    },
+    "updated_by": null,
+    "updated_at": "2026-10-13T20:29:57.926049+05:30"
+  },
+  {
+    "key": "fee_settings",
+    "value": {
+      "currency": "AUD",
+      "paymentInstructions": "Transfer to: Medical Imaging Accredited Training Academy\nBank: Commonwealth Bank of Australia · BSB 062-000 · Account 1234 5678\nUse your Student ID (e.g. STU1001) as the payment reference, then upload the receipt or a screenshot here."
+    },
+    "updated_by": 1,
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  }
+]
