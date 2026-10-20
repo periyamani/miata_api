@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "code": "PGDU",
+    "title": "PG Diploma in Ultrasound",
+    "description": "One-year blended ultrasound program with international clinical training and an ARDMS pathway: six months of theory, three months of clinical training and a paid internship.",
+    "category": "Diploma",
+    "duration_value": 12,
+    "duration_unit": "months",
+    "is_active": true,
+    "created_by": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "fee_amount": 36000
+  },
+  {
+    "id": 2,
+    "code": "CLIN",
+    "title": "Clinical Training",
+    "description": "Hands-on scanning under supervision across partner clinical locations, with regular evaluation and feedback.",
+    "category": "Clinical",
+    "duration_value": 3,
+    "duration_unit": "months",
+    "is_active": true,
+    "created_by": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "fee_amount": 8000
+  },
+  {
+    "id": 3,
+    "code": "ARDMS",
+    "title": "ARDMS Preparation",
+    "description": "Structured revision for the SPI and specialty examinations of the American Registry for Diagnostic Medical Sonography.",
+    "category": "Certification",
+    "duration_value": 3,
+    "duration_unit": "months",
+    "is_active": true,
+    "created_by": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "fee_amount": 2500
+  },
+  {
+    "id": 4,
+    "code": "PINT",
+    "title": "Paid Internship",
+    "description": "Three to six months of paid clinical internship with a performance-based monthly stipend.",
+    "category": "Internship",
+    "duration_value": 6,
+    "duration_unit": "months",
+    "is_active": true,
+    "created_by": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "fee_amount": null
+  },
+  {
+    "id": 5,
+    "code": "CEU",
+    "title": "Continuing Education in Sonography",
+    "description": "Short CPD modules for practising sonographers.",
+    "category": "CPD",
+    "duration_value": 6,
+    "duration_unit": "weeks",
+    "is_active": false,
+    "created_by": 1,
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "fee_amount": 600
+  }
+]

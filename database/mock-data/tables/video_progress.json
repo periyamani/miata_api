@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "video_id": 1,
+    "student_id": 7,
+    "watched_seconds": 38,
+    "last_position": 38,
+    "last_heartbeat_at": "2026-10-13T21:00:12.236128+05:30",
+    "completed_at": "2026-10-13T21:00:12.236128+05:30",
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 2,
+    "video_id": 1,
+    "student_id": 8,
+    "watched_seconds": 38,
+    "last_position": 38,
+    "last_heartbeat_at": "2026-10-13T21:00:12.236128+05:30",
+    "completed_at": "2026-10-13T21:00:12.236128+05:30",
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 3,
+    "video_id": 3,
+    "student_id": 9,
+    "watched_seconds": 38,
+    "last_position": 38,
+    "last_heartbeat_at": "2026-10-13T21:00:12.236128+05:30",
+    "completed_at": "2026-10-13T21:00:12.236128+05:30",
+    "created_at": "2026-10-13T21:00:12.236128+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  }
+]

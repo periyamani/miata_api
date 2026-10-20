@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "agent_id": 2,
+    "student_id": 7,
+    "referral_code": "AGT5ADQ7",
+    "source": "link",
+    "created_by": null,
+    "created_at": "2026-05-16T21:00:14.674+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "applied_course_id": null,
+    "notes": null
+  },
+  {
+    "id": 2,
+    "agent_id": 2,
+    "student_id": 8,
+    "referral_code": "AGT5ADQ7",
+    "source": "link",
+    "created_by": null,
+    "created_at": "2026-06-02T21:00:15.003+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "applied_course_id": null,
+    "notes": null
+  },
+  {
+    "id": 3,
+    "agent_id": 2,
+    "student_id": 9,
+    "referral_code": "AGT5ADQ7",
+    "source": "link",
+    "created_by": null,
+    "created_at": "2026-06-19T21:00:15.339+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "applied_course_id": null,
+    "notes": null
+  },
+  {
+    "id": 4,
+    "agent_id": 3,
+    "student_id": 10,
+    "referral_code": "AGTGL8G6",
+    "source": "link",
+    "created_by": null,
+    "created_at": "2026-07-06T21:00:15.679+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "applied_course_id": null,
+    "notes": null
+  },
+  {
+    "id": 5,
+    "agent_id": 3,
+    "student_id": 11,
+    "referral_code": "AGTGL8G6",
+    "source": "agent",
+    "created_by": 3,
+    "created_at": "2026-07-23T21:00:16.01+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "applied_course_id": 1,
+    "notes": "Interested in the next PG Diploma intake; prefers weekend clinical sessions."
+  },
+  {
+    "id": 6,
+    "agent_id": 2,
+    "student_id": 13,
+    "referral_code": "AGT5ADQ7",
+    "source": "link",
+    "created_by": null,
+    "created_at": "2026-08-26T21:00:16.658+05:30",
+    "updated_at": "2026-10-13T21:00:12.236128+05:30",
+    "applied_course_id": null,
+    "notes": null
+  }
+]

@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment (real credentials) — only .env.example is committed
+.env
+.env.*
+!.env.example
+
+# Uploaded files: live and mock (loaded from database/mock-data/uploads)
+uploads/
+uploads-mock/
+
+# Logs & OS files
+*.log
+.DS_Store
+Thumbs.db

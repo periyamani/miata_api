@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "assignment_id": 10,
+    "student_id": 7,
+    "created_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 2,
+    "assignment_id": 10,
+    "student_id": 10,
+    "created_at": "2026-10-13T21:00:12.236128+05:30"
+  }
+]
