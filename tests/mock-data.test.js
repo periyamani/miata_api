@@ -71,6 +71,68 @@ describe('mock data', () => {
     assert.deepEqual(rows[0], { source: 'agent', applied_course_id: 1 });
   });
 
+  it('includes the 2026–2027 MIATA Postgraduate Sonography course with its weekly timetable', async () => {
+    const login = await api().post('/api/auth/login').send({ email: 'admin@miata.local', password: MOCK_PASSWORD, role: 'admin' });
+    const res = await api().get('/api/admin/courses/6').set('Authorization', `Bearer ${login.body.data.accessToken}`);
+    const course = res.body.data;
+    assert.equal(course.title, 'MIATA Postgraduate Sonography');
+    assert.deepEqual([course.academicYear, course.startDate, course.endDate], ['2026–2027', '2026-10-19', '2027-04-18']);
+    assert.equal(course.modules.length, 15);
+    const lessons = course.modules.flatMap((m) => m.lessons);
+    assert.equal(lessons.filter((l) => !l.weekNumber).length, 212, 'curriculum topics');
+    assert.equal(lessons.filter((l) => l.weekNumber).length, 96, 'weekly sessions');
+    assert.deepEqual(
+      course.lecturers.map((l) => [l.lecturerName, l.sessionCount, l.professorName]),
+      [
+        ['Dr. Niveditha', 26, 'Dr. Niveditha'],
+        ['Jai', 24, 'Jai'],
+        ['Dr. Saranya', 8, 'Dr. Saranya'],
+        ['Dr. Suzmitha', 12, 'Dr. Suzmitha'],
+        ['Dr. Bagyavasan', 26, 'Dr. Bagyavasan'],
+      ],
+      'each lecturer linked to their professor account',
+    );
+    // Module professors are the lecturers of each module's sessions; nobody teaches the excluded cardiac module.
+    assert.deepEqual(
+      course.modules.map((m) => m.professors.map((p) => p.fullName).join(', ')),
+      [
+        'Dr. Niveditha',
+        'Dr. Bagyavasan, Dr. Niveditha',
+        'Dr. Niveditha',
+        'Dr. Bagyavasan, Dr. Saranya',
+        'Dr. Niveditha',
+        'Dr. Bagyavasan, Dr. Saranya',
+        'Jai',
+        '',
+        'Dr. Bagyavasan',
+        'Dr. Bagyavasan',
+        'Dr. Bagyavasan',
+        'Dr. Bagyavasan',
+        'Dr. Bagyavasan',
+        'Dr. Bagyavasan',
+        'Dr. Suzmitha',
+      ],
+    );
+
+    const lecturer = await api().post('/api/auth/login').send({ email: 'niveditha@miata.local', password: MOCK_PASSWORD, role: 'professor' });
+    const timetable = await api().get('/api/professor/timetable').set('Authorization', `Bearer ${lecturer.body.data.accessToken}`);
+    assert.equal(timetable.body.data.length, 1);
+    assert.equal(timetable.body.data[0].myLecturerIds.length, 1);
+  });
+
+  it('includes module statuses set by the professors who teach them', async () => {
+    const login = await api()
+      .post('/api/auth/login')
+      .send({ email: 'robert.wilson@miata.local', password: MOCK_PASSWORD, role: 'professor' });
+    const res = await api().get('/api/professor/modules').set('Authorization', `Bearer ${login.body.data.accessToken}`);
+    assert.deepEqual(
+      res.body.data.map((m) => m.teachingStatus),
+      ['completed', 'completed', 'in_progress', 'not_started', 'not_started'],
+    );
+    const { rows } = await pool.query(`SELECT count(*)::int AS n FROM module_statuses WHERE status = 'in_progress'`);
+    assert.equal(rows[0].n, 7);
+  });
+
   it('refuses to load mock data into the live database', async () => {
     await assert.rejects(loadMockData({ database: env.databases.live, uploadDir: env.uploads.dir }), /live database/);
   });

@@ -15,3 +15,9 @@ export function addDays(isoDate, days) {
   d.setUTCDate(d.getUTCDate() + days);
   return d.toISOString().slice(0, 10);
 }
+
+/** Calendar days from one 'YYYY-MM-DD' to another (negative when `to` is earlier). */
+export const daysBetween = (from, to) => Math.round((Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86_400_000);
+
+/** Programme weeks from a start to an end date inclusive (week 1 begins on the start date): 19 Oct 2026 – 18 Apr 2027 → 26. */
+export const weeksInRange = (start, end) => Math.ceil((daysBetween(start, end) + 1) / 7);

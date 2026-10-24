@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { z } from 'zod';
 import { uploadSingle } from '../../middleware/upload.js';
 import { validate } from '../../middleware/validate.js';
+import { MODULE_STATUSES } from '../../repositories/moduleStatus.repository.js';
 import { boolish, id, idList, isoDateTime, listQuery, optionalId, optionalText, requiredText } from '../../validators/common.js';
 import { professorMeetingRoutes } from '../meetings/meetings.routes.js';
 import * as ctrl from './professor.controller.js';
@@ -54,6 +55,8 @@ const reviewSchema = z
   .refine((v) => v.decision !== 'rework' || v.feedback, { message: 'Explain what needs to be reworked', path: ['feedback'] });
 
 const courseParams = z.object({ courseId: id });
+const moduleParams = z.object({ moduleId: id });
+const moduleStatusSchema = z.object({ status: z.enum(MODULE_STATUSES, { error: 'Choose Not Started, In Progress or Completed' }) });
 const assignmentParams = z.object({ assignmentId: id });
 const submissionParams = z.object({ submissionId: id });
 const attachment = uploadSingle('attachment', 'attachment', { required: false });
@@ -66,7 +69,10 @@ router.get(
   validate({ params: courseParams, query: z.object({ batchId: id.optional() }) }),
   ctrl.courseModules,
 );
+router.get('/modules', ctrl.modules);
+router.put('/modules/:moduleId/status', validate({ params: moduleParams, body: moduleStatusSchema }), ctrl.setModuleStatus);
 router.get('/batches', ctrl.batches);
+router.get('/timetable', ctrl.timetable);
 router.get('/students', validate({ query: studentsQuery }), ctrl.students);
 router.get('/assignments', validate({ query: assignmentsQuery }), ctrl.assignments);
 router.post('/assignments', attachment, validate({ body: assignmentSchema }), ctrl.createAssignment);

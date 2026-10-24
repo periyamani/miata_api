@@ -1,5 +1,6 @@
 import { created, send } from '../../utils/http.js';
 import { sendStoredFile } from '../../services/storage.service.js';
+import { studentTimetables } from '../admin/courses/timetable.service.js';
 import * as service from './student.service.js';
 
 export async function dashboard(req, res) {
@@ -76,4 +77,9 @@ export async function submitPayment(req, res) {
 
 export async function paymentProof(req, res) {
   await sendStoredFile(res, await service.paymentProofFile(req.user.id, req.valid.params.paymentId), { inline: true });
+}
+
+/** Weekly timetables of the student's courses (sessions of the modules available to them). */
+export async function timetable(req, res) {
+  send(res, await studentTimetables(req.user.id));
 }

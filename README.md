@@ -89,7 +89,7 @@ The startup log names the database in use, e.g. `Connected to PostgreSQL databas
 | `npm run db:seed [-- --reset]` | Same as `db:mock` — seeds `MOCK_DB_NAME` with the sample data in `database/mock-data` |
 | `npm run db:compare -- <dbA> <dbB>` | Compare two databases table by table: row counts, row checksums, duplicates |
 | `npm run create-admin` | Create an Admin (interactive; `-- --non-interactive` with `ADMIN_NAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` for automation) |
-| `npm test` | 146 integration + unit tests against `MOCK_DB_NAME`, then reloads the mock data |
+| `npm test` | 168 integration + unit tests against `MOCK_DB_NAME`, then reloads the mock data |
 | `npm run lint` · `npm run format` | ESLint · Prettier |
 
 ## Project structure
@@ -97,7 +97,7 @@ The startup log names the database in use, e.g. `Connected to PostgreSQL databas
 ```
 miata-api/
 ├── database/
-│   ├── migrations/          001_functions … 013_fees_access_applications (SQL, applied in order)
+│   ├── migrations/          001_functions … 016_course_lecturers (SQL, applied in order)
 │   └── mock-data/           tables/*.json + uploads/ — development data only
 ├── docs/                    api.md (every endpoint), database.md (schema, data sources)
 ├── scripts/                 db-setup, load-mock-data, compare-databases, create-admin, run-tests

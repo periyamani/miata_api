@@ -34,6 +34,9 @@ numbered file.
 | `010_batches.sql` | Batches: `batches`, `batch_courses`, `batch_students`, `batch_professors`, material availability (`module_batches`, `video_batches`), `assignments.batch_id` + `assignment_students`, the audience functions, and `enrolment_progress` recreated to count only material that applies to each student |
 | `012_online_meetings.sql` | Online classes: `meetings`, `meeting_participants`, the `email_deliveries` log, and the `setup` purpose for account set-up links |
 | `013_fees_access_applications.sql` | Course access periods (`course_enrolments.start_date` / `end_date`, `student_access` view, `users.deactivated_reason`, `student_profiles.access_expired_on`), fees (`courses.fee_amount`, `course_enrolments.fee_amount` / `discount_amount`), `fee_payments` with the `enrolment_fees` view and the `fee_settings` setting, and agent applications (`agent_referrals` source `agent`, `applied_course_id`, `notes`). The `enrolment_defaults` trigger fills in a new enrolment's dates and fee |
+| `015_course_timetable.sql` | Course timetables inside the course structure: `courses.academic_year` / `start_date` / `end_date` / `schedule_notes` and `lessons.week_number` (plus lecturer columns on modules, moved by 016). Drops the separate `timetables`, `timetable_streams` and `timetable_sessions` tables of the withdrawn `014_timetables.sql` (development databases only, never used by the application; the migration stops if any still holds rows) and removes that file's `schema_migrations` record |
+| `016_course_lecturers.sql` | `course_lecturers` (a course's lecturer allocations: name, optional professor account, allocation, day, times, session length) and `lessons.course_lecturer_id` (the lecturer of a weekly session). The lecturer columns 015 put on modules move here — one course lecturer per distinct name and course, scheduled lessons linked — and are dropped |
+| `017_module_status.sql` | `module_statuses`: how far the teaching of each module has got (`not_started` / `in_progress` / `completed`, with start and completion times), set by the professors who teach it |
 
 These files replace the earlier two-file schema (`001_initial_schema.sql`, `002_student_status_view.sql`). The resulting
 schema was compared object by object with the old one (columns, types, defaults, constraints, indexes, triggers, views) and
@@ -48,7 +51,8 @@ foreign-key order in one transaction, moves the id and code sequences past the l
 `MOCK_UPLOAD_DIR`. Refresh tokens, reset tokens and migration records are never part of mock data.
 
 Every mock account uses the password `Miata-6C75DR9` (mock data only). Accounts: `admin@miata.local`;
-agents `ramesh.agent@` and `priya.agent@`; professors `robert.wilson@`, `anjali.mehta@`, `samuel.lee@`; students `arun.kumar@`,
+agents `ramesh.agent@` and `priya.agent@`; professors `robert.wilson@`, `anjali.mehta@`, `samuel.lee@` and the 2026–2027 timetable's lecturers `niveditha@`, `jai@`,
+`saranya@`, `suzmitha@`, `bagyavasan@` (sample addresses: the documents give none); students `arun.kumar@`,
 `priya.sharma@`, `vikram.singh@`, `sneha.reddy@`, `karthik.balaji@`, `meera.iyer@`, `divya.pillai@` and the deactivated
 `rahul.menon@` (all `@miata.local`). `vikram.singh@` cannot sign in either: his only course (ARDMS, 3 months) ended on 4 Oct
 2026, so his account was deactivated automatically (`deactivated_reason = 'course_expired'`).
@@ -58,6 +62,19 @@ Training $8,000 and ARDMS Preparation $2,500. Arun has a $10,000 scholarship, on
 Sharma has an approved and a rejected payment; Divya has a pending payment; Sneha has paid nothing yet. Every payment has a
 proof image in `uploads/payment-proofs`. Karthik was registered by the agent Priya with **Apply Now** for the PG Diploma and
 is not yet enrolled.
+
+**MIATA Postgraduate Sonography** (course 6, code `PGS-2627` — a sample code: the source documents give none) holds the
+2026–2027 curriculum and revised weekly timetable, created by the real import (`POST /admin/timetable-templates/pg-sonography-2026-27/import`):
+academic year 2026–2027, 19 Oct 2026 – 18 Apr 2027 (26 weeks); the 14 curriculum modules with their 212 topics plus the
+revised timetable's Peripheral Nerve Sonography, Nerve Blocks and Neurosonography module; five course lecturers —
+Dr. Niveditha (Sunday), Jai, Dr. Saranya and Dr. Suzmitha (mutually agreed days), Dr. Bagyavasan (weekday), one-hour
+sessions, times not set, each linked to their professor account and assigned as professor of the modules they teach
+(17 module assignments, no others on the course) — and their 96 weekly sessions, each in its module. The cardiac module is in the catalogue but not scheduled.
+
+Module statuses in the mock data: on the PG Diploma, Robert Wilson has marked Ultrasound Physics and Abdominal Ultrasound
+Completed and Anjali Mehta has Obstetrics & Gynecology In Progress; on Clinical Training, Samuel Lee has Scanning Protocols
+Completed and Supervised Clinical Practice In Progress; on MIATA Postgraduate Sonography, the five modules with week-1 sessions
+are In Progress, each marked by its lecturer on 23 Oct 2026. Every other module is Not Started.
 
 Batches in the mock data: **PGDU Batch 2026-A** (PG Diploma; students Arun, Priya Sharma, Sneha; professors Robert Wilson and
 Anjali Mehta), **PGDU Batch 2026-B** (PG Diploma; Divya and the deactivated Rahul; Samuel Lee) and **Clinical Training 2026**
@@ -103,6 +120,7 @@ courses ─ 1:N ─ modules ─ 1:N ─ lessons
 courses ─ N:M ─ students     via course_enrolments            [UNIQUE (course_id, student_id)]
 courses ─ N:M ─ professors   via professor_course_assignments [UNIQUE (professor_id, course_id)]
 modules ─ N:M ─ professors   via professor_module_assignments [UNIQUE (professor_id, module_id)]
+modules ─ 1:1 ─ module_statuses (teaching status; no row = not started)
 
 batches ─ N:M ─ courses      via batch_courses                [UNIQUE (batch_id, course_id)]
 batches ─ 1:N ─ students     via batch_students               [UNIQUE student_id: one batch per student]
@@ -142,12 +160,14 @@ app_settings (key → JSONB)
 ### Courses & content
 | Table | Key columns | Notes |
 |---|---|---|
-| `courses` | `code` (unique), `title`, `description`, `category`, `duration_value` + `duration_unit` (both or neither), `fee_amount` (≥ 0, optional), `is_active` | Courses are deactivated, never deleted (enrolments reference them with `RESTRICT`). |
-| `modules` | `course_id` (CASCADE), `title`, `description`, `position` | Ordered by `position, id`. |
-| `lessons` | `module_id` (CASCADE), `title`, `content`, `duration_minutes`, `position` | |
+| `courses` | `code` (unique), `title`, `description`, `category`, `duration_value` + `duration_unit` (both or neither), `fee_amount` (≥ 0, optional), `is_active`, `academic_year` (`2026–2027`), `start_date`, `end_date` (not before the start), `schedule_notes` | Courses are deactivated, never deleted (enrolments reference them with `RESTRICT`). Week 1 of the timetable begins on `start_date`; week dates are derived, never stored. |
+| `modules` | `course_id` (CASCADE), `title`, `description`, `position` | Ordered by `position, id`. A curriculum module. |
+| `lessons` | `module_id` (CASCADE), `title`, `content`, `duration_minutes`, `position`, `week_number` (1–104), `course_lecturer_id` → course_lecturers (SET NULL) | A curriculum topic, or — with a `week_number` and a lecturer — a weekly session (within the course's dates; the lecturer one of the course's, checked by the service). Sessions are matched by module + week + lecturer: a session may share a topic's title. |
+| `course_lecturers` | `course_id` (CASCADE), `lecturer_name` (unique per course, case-insensitive), `professor_id?` → users (SET NULL), `allocation`, `delivery_day` (`monday`…`sunday`/`weekday`/`agreed`), `start_time`, `end_time` (after the start), `session_minutes` (15–480), `position` | Who teaches the course's weekly sessions and when. Times stay NULL until confirmed. Linking a professor account makes them the professor of the modules they teach sessions in (`professor_module_assignments`, added by the service, never removed); course-wide permissions stay with `professor_course_assignments`. |
 | `course_enrolments` | `course_id`, `student_id`, `status` (`active`/`suspended`/`completed`), `enrolled_at`, `completed_at`, `enrolled_by`, `start_date`, `end_date?`, `fee_amount`, `discount_amount` | `CHECK ((status = 'completed') = (completed_at IS NOT NULL))`. Only the completion service sets `completed`. The `enrolment_defaults` trigger (013) sets a new enrolment's `start_date` (the batch's start date when the course is taken with a batch that has one, else the enrolment day), `end_date` (start + course duration − 1 day; null = no end) and `fee_amount` (the course fee). `CHECK (end_date >= start_date)`, `CHECK (0 ≤ discount_amount ≤ fee_amount)`. Admins can change both per student. |
 | `professor_course_assignments` | `professor_id`, `course_id`, `assigned_by` | The professor creates and reviews assignments anywhere in the course. |
-| `professor_module_assignments` | `professor_id`, `module_id`, `assigned_by` | The professor creates and reviews that module's assignments only. |
+| `professor_module_assignments` | `professor_id`, `module_id`, `assigned_by` | The professor creates and reviews that module's assignments only. On a course with lecturers, only professors linked to its lecturers (checked by the service). |
+| `module_statuses` | `module_id` (CASCADE, **UNIQUE**), `status` (`not_started`/`in_progress`/`completed`), `started_at`, `completed_at`, `updated_by` → users (SET NULL), `updated_at` | How far the teaching of a module has got (017). No row = not started. Set by the module's professors or its course's professors (checked by the service), logged as `module.<status>`. `CHECK`: not started has neither time; in progress has `started_at` only; completed has both, completion not before the start. Going back to in progress keeps the first start. One status per module, shared by every batch taking the course. |
 
 ### Batches
 | Table | Key columns | Notes |

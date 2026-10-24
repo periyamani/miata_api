@@ -12,6 +12,22 @@ async function findActiveProfessor(professorId, db) {
   return professor;
 }
 
+/**
+ * A course with lecturers (its timetable, migration 016) has its modules taught by them: only a professor linked to one of
+ * the course's lecturers can be assigned to its modules. Courses without lecturers accept any professor, as before.
+ */
+async function assertCourseLecturer(db, courseId, professorId) {
+  const { rows } = await db.query(
+    `SELECT EXISTS (SELECT 1 FROM course_lecturers WHERE course_id = $1) AS has_lecturers,
+            EXISTS (SELECT 1 FROM course_lecturers WHERE course_id = $1 AND professor_id = $2) AS is_lecturer`,
+    [courseId, professorId],
+  );
+  if (rows[0].has_lecturers && !rows[0].is_lecturer) {
+    const message = 'Only the course’s lecturers can be assigned to its modules';
+    throw new AppError(422, 'VALIDATION_ERROR', message, { professorId: message });
+  }
+}
+
 const TARGETS = {
   course: {
     find: 'SELECT id, title, id AS course_id FROM courses WHERE id = $1',
@@ -40,6 +56,7 @@ export async function assignWithin(db, kind, targetId, professorId, actor) {
   const target = rows[0];
   if (!target) throw notFound(t.label);
   const professor = await findActiveProfessor(professorId, db);
+  if (kind === 'module') await assertCourseLecturer(db, target.course_id, professorId);
   const { rowCount } = await db.query(t.insert, [professorId, targetId, actor.id]);
   if (rowCount) {
     await notifyUsers(

@@ -1,20 +1,46 @@
 import { withTransaction } from '../../../config/db.js';
-import { badRequest, conflict, notFound } from '../../../utils/AppError.js';
+import { AppError, badRequest, conflict, notFound } from '../../../utils/AppError.js';
+import { weeksInRange } from '../../../utils/dates.js';
 import { logActivity } from '../../../services/activity.service.js';
 import { attachProgress } from '../../../services/progress.service.js';
 import { getCompletionPolicy } from '../../../services/settings.service.js';
 import * as repo from './courses.repository.js';
 import * as curriculum from './curriculum.repository.js';
+import { courseLecturers } from './lecturers.repository.js';
+import { assignLecturerModules } from './lecturers.service.js';
 
 const codeConflict = () => conflict('A course with this code already exists', { code: 'This course code is already in use' });
+const invalid = (field, message) => new AppError(422, 'VALIDATION_ERROR', message, { [field]: message });
+
+/**
+ * A lesson's schedule: its week must fall within the course's programme dates (when it has both), and a lecturer — who
+ * must be one of the course's lecturers — teaches a scheduled session, so it needs a week.
+ */
+async function assertSchedule(db, { weekNumber, courseLecturerId }, { courseId, startDate, endDate }) {
+  if (weekNumber && startDate && endDate) {
+    const weeks = weeksInRange(startDate, endDate);
+    if (weekNumber > weeks) throw invalid('weekNumber', `The course runs for ${weeks} week${weeks === 1 ? '' : 's'}`);
+  }
+  if (courseLecturerId) {
+    if (!(await curriculum.lecturerInCourse(courseLecturerId, courseId, db))) {
+      throw invalid('courseLecturerId', 'Choose one of the course’s lecturers');
+    }
+    if (!weekNumber) throw invalid('weekNumber', 'Choose the week in which the lecturer teaches this session');
+  }
+}
 
 export const listCourses = (query) => repo.listCourses(query);
 
 export async function getCourse(id) {
   const course = await repo.findCourse(id);
   if (!course) throw notFound('Course');
-  const [modules, professors, batches] = await Promise.all([repo.courseCurriculum(id), repo.courseProfessors(id), repo.courseBatches(id)]);
-  return { ...course, modules, professors, batches };
+  const [modules, professors, batches, lecturers] = await Promise.all([
+    repo.courseCurriculum(id),
+    repo.courseProfessors(id),
+    repo.courseBatches(id),
+    courseLecturers(id),
+  ]);
+  return { ...course, modules, professors, batches, lecturers };
 }
 
 export async function listCourseStudents(courseId, query) {
@@ -44,6 +70,12 @@ export async function createCourse(data, actor) {
 export async function updateCourse(id, data, actor) {
   return withTransaction(async (db) => {
     if (await repo.codeTaken(data.code, id, db)) throw codeConflict();
+    if (data.startDate && data.endDate) {
+      const lastWeek = await repo.lastScheduledWeek(id, db);
+      if (lastWeek > weeksInRange(data.startDate, data.endDate)) {
+        throw invalid('endDate', `Topics are scheduled up to week ${lastWeek}: keep the dates long enough for them`);
+      }
+    }
     const course = await repo.updateCourse(id, data, db);
     if (!course) throw notFound('Course');
     await logActivity(
@@ -145,7 +177,10 @@ export async function addLesson(moduleId, data, actor) {
   return withTransaction(async (db) => {
     const mod = await curriculum.findModule(moduleId, db);
     if (!mod) throw notFound('Module');
+    await assertSchedule(db, data, { courseId: mod.course_id, startDate: mod.course_start_date, endDate: mod.course_end_date });
     const lesson = await curriculum.insertLesson(moduleId, data, db);
+    // A session taught by a linked lecturer makes their professor one of the module's professors.
+    if (data.courseLecturerId) await assignLecturerModules(db, mod.course_id, actor);
     await logActivity(
       {
         actorId: actor.id,
@@ -162,8 +197,11 @@ export async function addLesson(moduleId, data, actor) {
 
 export async function updateLesson(lessonId, data, actor) {
   return withTransaction(async (db) => {
+    const existing = await curriculum.findLesson(lessonId, db);
+    if (!existing) throw notFound('Lesson');
+    await assertSchedule(db, data, { courseId: existing.course_id, startDate: existing.course_start_date, endDate: existing.course_end_date });
     const lesson = await curriculum.updateLesson(lessonId, data, db);
-    if (!lesson) throw notFound('Lesson');
+    if (data.courseLecturerId) await assignLecturerModules(db, existing.course_id, actor);
     await logActivity(
       {
         actorId: actor.id,

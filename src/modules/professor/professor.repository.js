@@ -1,5 +1,6 @@
 import { pool } from '../../config/db.js';
 import { AUDIENCE_COLUMNS, AUDIENCE_JOIN, submissionCounts } from '../../repositories/assignments.repository.js';
+import { TEACHING_STATUS_COLUMNS, TEACHING_STATUS_JOIN } from '../../repositories/moduleStatus.repository.js';
 import {
   professorAssignmentPredicate,
   professorAssignmentVisiblePredicate,
@@ -227,6 +228,30 @@ export async function assignableModules(professorId, courseId, batchId = null) {
         [courseId, professorId],
       );
   return rows;
+}
+
+/**
+ * Modules of active courses whose teaching status the professor keeps up to date: every module of a course they teach
+ * as a whole, and the modules they are assigned to. Each with its number in the course, status, lesson count, the weeks
+ * of its scheduled sessions and its module professors. `moduleId` narrows to one module (null when it is not theirs).
+ */
+export async function teachingModules(professorId, { moduleId = null } = {}, db = pool) {
+  const { rows } = await db.query(
+    `SELECT m.id, m.title, m.position, m.course_id, c.title AS course_title, c.code AS course_code, ${TEACHING_STATUS_COLUMNS},
+            (SELECT count(*) FROM modules m2 WHERE m2.course_id = m.course_id AND (m2.position, m2.id) < (m.position, m.id)) + 1 AS number,
+            (SELECT count(*) FROM lessons l WHERE l.module_id = m.id) AS lesson_count,
+            COALESCE((SELECT array_agg(DISTINCT l.week_number ORDER BY l.week_number) FROM lessons l
+                       WHERE l.module_id = m.id AND l.week_number IS NOT NULL), '{}') AS weeks,
+            COALESCE((SELECT json_agg(u.full_name ORDER BY u.full_name)
+                        FROM professor_module_assignments pma JOIN users u ON u.id = pma.professor_id
+                       WHERE pma.module_id = m.id), '[]') AS professors
+       FROM modules m JOIN courses c ON c.id = m.course_id
+       ${TEACHING_STATUS_JOIN}
+      WHERE c.is_active AND ${professorPlacementPredicate('m.course_id', 'm.id', '$1')} AND ($2::bigint IS NULL OR m.id = $2)
+      ORDER BY c.title, c.id, m.position, m.id`,
+    [professorId, moduleId],
+  );
+  return moduleId ? (rows[0] ?? null) : rows;
 }
 
 /** How many of `studentIds` belong to the batch and are enrolled in the course (selected recipients must all be). */

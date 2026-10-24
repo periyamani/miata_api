@@ -1,6 +1,7 @@
 import { created, send, sendPage } from '../../utils/http.js';
 import { sendStoredFile } from '../../services/storage.service.js';
 import { getAttachment } from '../admin/assignments/assignments.service.js';
+import { professorTimetables } from '../admin/courses/timetable.service.js';
 import * as service from './professor.service.js';
 
 export async function dashboard(req, res) {
@@ -13,6 +14,14 @@ export async function courses(req, res) {
 
 export async function courseModules(req, res) {
   send(res, await service.assignableModules(req.user.id, req.valid.params.courseId, req.valid.query.batchId));
+}
+
+export async function modules(req, res) {
+  send(res, await service.teachingModules(req.user.id));
+}
+
+export async function setModuleStatus(req, res) {
+  send(res, await service.setModuleStatus(req.user, req.valid.params.moduleId, req.valid.body.status));
 }
 
 export async function batches(req, res) {
@@ -71,4 +80,9 @@ export async function comment(req, res) {
 
 export async function review(req, res) {
   send(res, await service.review(req.user, req.valid.params.submissionId, req.valid.body));
+}
+
+/** Weekly timetables of the courses the professor lectures in or teaches. */
+export async function timetable(req, res) {
+  send(res, await professorTimetables(req.user.id));
 }

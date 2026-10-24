@@ -8,6 +8,7 @@ import { getCompletionPolicy } from '../../services/settings.service.js';
 import { deleteStoredFile, recordUpload } from '../../services/storage.service.js';
 import * as assignments from '../../repositories/assignments.repository.js';
 import { batchEnrolments } from '../../repositories/batches.repository.js';
+import { setTeachingStatus } from '../../repositories/moduleStatus.repository.js';
 import * as submissions from '../../repositories/submissions.repository.js';
 import { upcomingForProfessor } from '../meetings/meetings.service.js';
 import * as repo from './professor.repository.js';
@@ -66,6 +67,34 @@ export async function assignableModules(professorId, courseId, batchId = null) {
     if (!batch?.teaches_batch || !batch.takes_course) throw notFound('Batch');
   }
   return repo.assignableModules(professorId, courseId, batchId);
+}
+
+// ─── Module status ──────────────────────────────────────────────────────
+// The professors who teach a module (its course's professors, or its own) keep its teaching status up to date.
+
+const MODULE_STATUS_LABELS = { not_started: 'Not Started', in_progress: 'In Progress', completed: 'Completed' };
+
+export const teachingModules = (professorId) => repo.teachingModules(professorId);
+
+export async function setModuleStatus(professor, moduleId, status) {
+  await withTransaction(async (db) => {
+    const module = await repo.teachingModules(professor.id, { moduleId }, db);
+    if (!module) throw notFound('Module');
+    if (module.teaching_status === status) return;
+    await setTeachingStatus(moduleId, status, professor.id, db);
+    await logActivity(
+      {
+        actorId: professor.id,
+        action: `module.${status}`,
+        entityType: 'module',
+        entityId: moduleId,
+        description: `${professor.full_name} marked module "${module.title}" (${module.course_title}) as ${MODULE_STATUS_LABELS[status]}`,
+        metadata: { courseId: module.course_id, from: module.teaching_status, to: status },
+      },
+      db,
+    );
+  });
+  return repo.teachingModules(professor.id, { moduleId });
 }
 
 // ─── Assignment authoring ───────────────────────────────────────────────

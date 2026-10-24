@@ -97,5 +97,140 @@
     "position": 3,
     "created_at": "2026-10-13T21:00:12.236128+05:30",
     "updated_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 12,
+    "course_id": 6,
+    "title": "Ultrasound Physics, Instrumentation and SPI Preparation",
+    "description": "Outcome: Students should understand the physical principles behind ultrasound image formation, recognise artefacts, optimise images and prepare for the Sonography Principles and Instrumentation (SPI) examination.\n\nThe SPI component should follow the current examination blueprint of the American Registry for Diagnostic Medical Sonography. SPI preparation alone does not establish eligibility for the examination or confer a professional credential.",
+    "position": 1,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 13,
+    "course_id": 6,
+    "title": "Abdominal Sonography",
+    "description": null,
+    "position": 2,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 14,
+    "course_id": 6,
+    "title": "Obstetric Sonography",
+    "description": null,
+    "position": 3,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 15,
+    "course_id": 6,
+    "title": "Gynaecological Sonography",
+    "description": null,
+    "position": 4,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 16,
+    "course_id": 6,
+    "title": "Vascular Sonography and Doppler",
+    "description": null,
+    "position": 5,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 17,
+    "course_id": 6,
+    "title": "Small Parts and Superficial Sonography",
+    "description": null,
+    "position": 6,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 18,
+    "course_id": 6,
+    "title": "Musculoskeletal Sonography",
+    "description": null,
+    "position": 7,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 19,
+    "course_id": 6,
+    "title": "Echocardiography and Cardiac Ultrasound",
+    "description": "This module should be treated as introductory unless students receive dedicated cardiac training and supervised clinical practice.",
+    "position": 8,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 20,
+    "course_id": 6,
+    "title": "Paediatric and Neonatal Sonography",
+    "description": null,
+    "position": 9,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 21,
+    "course_id": 6,
+    "title": "Emergency Ultrasound and POCUS",
+    "description": null,
+    "position": 10,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 22,
+    "course_id": 6,
+    "title": "Ultrasound-Guided Interventions",
+    "description": "This should be a dedicated module because image-guided procedures require additional knowledge of anatomy, needle visualisation, asepsis, complications and procedural safety.\n\nImportant: This module should teach the principles, indications, preparation, imaging and safety considerations for interventions. Actual invasive procedures must be performed only by appropriately qualified and authorised practitioners under suitable supervision. A sonography education programme does not independently authorise a student to perform biopsies, drainage, injections or other invasive procedures.",
+    "position": 11,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 23,
+    "course_id": 6,
+    "title": "Advanced Sonography and Emerging Technologies",
+    "description": null,
+    "position": 12,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 24,
+    "course_id": 6,
+    "title": "Clinical Practice, Reporting and Professional Standards",
+    "description": null,
+    "position": 13,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 25,
+    "course_id": 6,
+    "title": "Research Methods and Evidence-Based Sonography",
+    "description": null,
+    "position": 14,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 26,
+    "course_id": 6,
+    "title": "Peripheral Nerve Sonography, Nerve Blocks and Neurosonography",
+    "description": null,
+    "position": 15,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30"
   }
 ]

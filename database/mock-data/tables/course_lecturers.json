@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "course_id": 6,
+    "lecturer_name": "Dr. Niveditha",
+    "professor_id": 15,
+    "allocation": "Sunday — Ultrasound Physics and Instrumentation (SPI), General Sonography, Fetal Sonography and Vascular Sonography.",
+    "delivery_day": "sunday",
+    "start_time": null,
+    "end_time": null,
+    "session_minutes": 60,
+    "position": 1,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 2,
+    "course_id": 6,
+    "lecturer_name": "Jai",
+    "professor_id": 16,
+    "allocation": "One 1-hour weekly session during the MSK module; the planned syllabus finishes early, so no sessions are padded to the full 6 months.",
+    "delivery_day": "agreed",
+    "start_time": null,
+    "end_time": null,
+    "session_minutes": 60,
+    "position": 2,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 3,
+    "course_id": 6,
+    "lecturer_name": "Dr. Saranya",
+    "professor_id": 17,
+    "allocation": "One 1-hour weekly session during the Gynaecology and Breast Sonography module; module is scheduled to finish early.",
+    "delivery_day": "agreed",
+    "start_time": null,
+    "end_time": null,
+    "session_minutes": 60,
+    "position": 3,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 4,
+    "course_id": 6,
+    "lecturer_name": "Dr. Suzmitha",
+    "professor_id": 18,
+    "allocation": "One 1-hour weekly session during the Peripheral Nerve Sonography, Nerve Blocks and Neurosonography module; module is scheduled to finish early.",
+    "delivery_day": "agreed",
+    "start_time": null,
+    "end_time": null,
+    "session_minutes": 60,
+    "position": 4,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 5,
+    "course_id": 6,
+    "lecturer_name": "Dr. Bagyavasan",
+    "professor_id": 19,
+    "allocation": "One 1-hour session on a weekday each week, covering professional practice, interventions, POCUS, paediatric/neonatal sonography, advanced imaging, research, case discussions and assessments.",
+    "delivery_day": "weekday",
+    "start_time": null,
+    "end_time": null,
+    "session_minutes": 60,
+    "position": 5,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T15:05:33.041346+05:30"
+  }
+]

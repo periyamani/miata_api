@@ -5,5 +5,124 @@
     "module_id": 3,
     "assigned_by": 1,
     "assigned_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 2,
+    "professor_id": 15,
+    "module_id": 12,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 3,
+    "professor_id": 15,
+    "module_id": 13,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 4,
+    "professor_id": 19,
+    "module_id": 13,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 5,
+    "professor_id": 15,
+    "module_id": 14,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 6,
+    "professor_id": 17,
+    "module_id": 15,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 7,
+    "professor_id": 19,
+    "module_id": 15,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 8,
+    "professor_id": 15,
+    "module_id": 16,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 9,
+    "professor_id": 17,
+    "module_id": 17,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 10,
+    "professor_id": 19,
+    "module_id": 17,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 11,
+    "professor_id": 16,
+    "module_id": 18,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 12,
+    "professor_id": 19,
+    "module_id": 20,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 13,
+    "professor_id": 19,
+    "module_id": 21,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 14,
+    "professor_id": 19,
+    "module_id": 22,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 15,
+    "professor_id": 19,
+    "module_id": 23,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 16,
+    "professor_id": 19,
+    "module_id": 24,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 17,
+    "professor_id": 19,
+    "module_id": 25,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 18,
+    "professor_id": 18,
+    "module_id": 26,
+    "assigned_by": 1,
+    "assigned_at": "2026-10-22T15:05:33.041346+05:30"
   }
 ]

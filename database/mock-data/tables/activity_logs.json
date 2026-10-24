@@ -297,5 +297,410 @@
     },
     "ip_address": null,
     "created_at": "2026-10-13T21:00:12.236128+05:30"
+  },
+  {
+    "id": 27,
+    "actor_id": 1,
+    "action": "course.timetable_imported",
+    "entity_type": "course",
+    "entity_id": 6,
+    "description": "Timetable \"MIATA Postgraduate Sonography — Revised Weekly Timetable 2026–2027\" imported into MIATA Postgraduate Sonography",
+    "metadata": {
+      "template": "pg-sonography-2026-27",
+      "topicsCreated": 212,
+      "modulesCreated": 15,
+      "sessionsCreated": 96,
+      "lecturersCreated": 5
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T11:39:53.729264+05:30"
+  },
+  {
+    "id": 28,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 12,
+    "description": "Dr. Niveditha assigned to Ultrasound Physics, Instrumentation and SPI Preparation (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 15
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 29,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 13,
+    "description": "Dr. Niveditha assigned to Abdominal Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 15
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 30,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 13,
+    "description": "Dr. Bagyavasan assigned to Abdominal Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 31,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 14,
+    "description": "Dr. Niveditha assigned to Obstetric Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 15
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 32,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 15,
+    "description": "Dr. Saranya assigned to Gynaecological Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 17
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 33,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 15,
+    "description": "Dr. Bagyavasan assigned to Gynaecological Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 34,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 16,
+    "description": "Dr. Niveditha assigned to Vascular Sonography and Doppler (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 15
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 35,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 17,
+    "description": "Dr. Saranya assigned to Small Parts and Superficial Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 17
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 36,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 17,
+    "description": "Dr. Bagyavasan assigned to Small Parts and Superficial Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 37,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 18,
+    "description": "Jai assigned to Musculoskeletal Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 16
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 38,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 20,
+    "description": "Dr. Bagyavasan assigned to Paediatric and Neonatal Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 39,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 21,
+    "description": "Dr. Bagyavasan assigned to Emergency Ultrasound and POCUS (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 40,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 22,
+    "description": "Dr. Bagyavasan assigned to Ultrasound-Guided Interventions (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 41,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 23,
+    "description": "Dr. Bagyavasan assigned to Advanced Sonography and Emerging Technologies (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 42,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 24,
+    "description": "Dr. Bagyavasan assigned to Clinical Practice, Reporting and Professional Standards (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 43,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 25,
+    "description": "Dr. Bagyavasan assigned to Research Methods and Evidence-Based Sonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 19
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 44,
+    "actor_id": 1,
+    "action": "professor.assigned_module",
+    "entity_type": "module",
+    "entity_id": 26,
+    "description": "Dr. Suzmitha assigned to Peripheral Nerve Sonography, Nerve Blocks and Neurosonography (MIATA Postgraduate Sonography)",
+    "metadata": {
+      "professorId": 18
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 45,
+    "actor_id": 1,
+    "action": "course.timetable_imported",
+    "entity_type": "course",
+    "entity_id": 6,
+    "description": "Timetable \"MIATA Postgraduate Sonography — Revised Weekly Timetable 2026–2027\" imported into MIATA Postgraduate Sonography",
+    "metadata": {
+      "template": "pg-sonography-2026-27",
+      "topicsCreated": 0,
+      "modulesCreated": 0,
+      "sessionsCreated": 0,
+      "lecturersCreated": 0
+    },
+    "ip_address": null,
+    "created_at": "2026-10-22T15:05:33.041346+05:30"
+  },
+  {
+    "id": 46,
+    "actor_id": 4,
+    "action": "module.completed",
+    "entity_type": "module",
+    "entity_id": 1,
+    "description": "Dr. Robert Wilson marked module \"Ultrasound Physics & Instrumentation\" (PG Diploma in Ultrasound) as Completed",
+    "metadata": {
+      "to": "completed",
+      "from": "not_started",
+      "courseId": 1
+    },
+    "ip_address": null,
+    "created_at": "2026-10-14T10:05:00+05:30"
+  },
+  {
+    "id": 47,
+    "actor_id": 4,
+    "action": "module.completed",
+    "entity_type": "module",
+    "entity_id": 2,
+    "description": "Dr. Robert Wilson marked module \"Abdominal Ultrasound\" (PG Diploma in Ultrasound) as Completed",
+    "metadata": {
+      "to": "completed",
+      "from": "not_started",
+      "courseId": 1
+    },
+    "ip_address": null,
+    "created_at": "2026-10-14T10:06:00+05:30"
+  },
+  {
+    "id": 48,
+    "actor_id": 5,
+    "action": "module.in_progress",
+    "entity_type": "module",
+    "entity_id": 3,
+    "description": "Dr. Anjali Mehta marked module \"Obstetrics & Gynecology\" (PG Diploma in Ultrasound) as In Progress",
+    "metadata": {
+      "to": "in_progress",
+      "from": "not_started",
+      "courseId": 1
+    },
+    "ip_address": null,
+    "created_at": "2026-10-15T09:30:00+05:30"
+  },
+  {
+    "id": 49,
+    "actor_id": 6,
+    "action": "module.completed",
+    "entity_type": "module",
+    "entity_id": 6,
+    "description": "Dr. Samuel Lee marked module \"Scanning Protocols\" (Clinical Training) as Completed",
+    "metadata": {
+      "to": "completed",
+      "from": "not_started",
+      "courseId": 2
+    },
+    "ip_address": null,
+    "created_at": "2026-10-16T11:10:00+05:30"
+  },
+  {
+    "id": 50,
+    "actor_id": 6,
+    "action": "module.in_progress",
+    "entity_type": "module",
+    "entity_id": 7,
+    "description": "Dr. Samuel Lee marked module \"Supervised Clinical Practice\" (Clinical Training) as In Progress",
+    "metadata": {
+      "to": "in_progress",
+      "from": "not_started",
+      "courseId": 2
+    },
+    "ip_address": null,
+    "created_at": "2026-10-16T11:11:00+05:30"
+  },
+  {
+    "id": 51,
+    "actor_id": 15,
+    "action": "module.in_progress",
+    "entity_type": "module",
+    "entity_id": 12,
+    "description": "Dr. Niveditha marked module \"Ultrasound Physics, Instrumentation and SPI Preparation\" (MIATA Postgraduate Sonography) as In Progress",
+    "metadata": {
+      "to": "in_progress",
+      "from": "not_started",
+      "courseId": 6
+    },
+    "ip_address": null,
+    "created_at": "2026-10-23T09:15:00+05:30"
+  },
+  {
+    "id": 52,
+    "actor_id": 17,
+    "action": "module.in_progress",
+    "entity_type": "module",
+    "entity_id": 15,
+    "description": "Dr. Saranya marked module \"Gynaecological Sonography\" (MIATA Postgraduate Sonography) as In Progress",
+    "metadata": {
+      "to": "in_progress",
+      "from": "not_started",
+      "courseId": 6
+    },
+    "ip_address": null,
+    "created_at": "2026-10-23T10:40:00+05:30"
+  },
+  {
+    "id": 53,
+    "actor_id": 16,
+    "action": "module.in_progress",
+    "entity_type": "module",
+    "entity_id": 18,
+    "description": "Jai marked module \"Musculoskeletal Sonography\" (MIATA Postgraduate Sonography) as In Progress",
+    "metadata": {
+      "to": "in_progress",
+      "from": "not_started",
+      "courseId": 6
+    },
+    "ip_address": null,
+    "created_at": "2026-10-23T12:05:00+05:30"
+  },
+  {
+    "id": 54,
+    "actor_id": 19,
+    "action": "module.in_progress",
+    "entity_type": "module",
+    "entity_id": 24,
+    "description": "Dr. Bagyavasan marked module \"Clinical Practice, Reporting and Professional Standards\" (MIATA Postgraduate Sonography) as In Progress",
+    "metadata": {
+      "to": "in_progress",
+      "from": "not_started",
+      "courseId": 6
+    },
+    "ip_address": null,
+    "created_at": "2026-10-23T14:20:00+05:30"
+  },
+  {
+    "id": 55,
+    "actor_id": 18,
+    "action": "module.in_progress",
+    "entity_type": "module",
+    "entity_id": 26,
+    "description": "Dr. Suzmitha marked module \"Peripheral Nerve Sonography, Nerve Blocks and Neurosonography\" (MIATA Postgraduate Sonography) as In Progress",
+    "metadata": {
+      "to": "in_progress",
+      "from": "not_started",
+      "courseId": 6
+    },
+    "ip_address": null,
+    "created_at": "2026-10-23T16:45:00+05:30"
   }
 ]

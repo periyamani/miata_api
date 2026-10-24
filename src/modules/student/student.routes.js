@@ -18,6 +18,7 @@ router.get('/dashboard', ctrl.dashboard);
 router.get('/courses', ctrl.courses);
 router.get('/courses/:courseId', validate({ params: courseParams }), ctrl.course);
 router.get('/modules', validate({ query: z.object({ courseId: id.optional() }) }), ctrl.modules);
+router.get('/timetable', ctrl.timetable);
 
 router.get(
   '/videos',

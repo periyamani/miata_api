@@ -11,7 +11,11 @@
     "created_by": 1,
     "created_at": "2026-10-13T21:00:12.236128+05:30",
     "updated_at": "2026-10-13T21:00:12.236128+05:30",
-    "fee_amount": 36000
+    "fee_amount": 36000,
+    "academic_year": null,
+    "start_date": null,
+    "end_date": null,
+    "schedule_notes": null
   },
   {
     "id": 2,
@@ -25,7 +29,11 @@
     "created_by": 1,
     "created_at": "2026-10-13T21:00:12.236128+05:30",
     "updated_at": "2026-10-13T21:00:12.236128+05:30",
-    "fee_amount": 8000
+    "fee_amount": 8000,
+    "academic_year": null,
+    "start_date": null,
+    "end_date": null,
+    "schedule_notes": null
   },
   {
     "id": 3,
@@ -39,7 +47,11 @@
     "created_by": 1,
     "created_at": "2026-10-13T21:00:12.236128+05:30",
     "updated_at": "2026-10-13T21:00:12.236128+05:30",
-    "fee_amount": 2500
+    "fee_amount": 2500,
+    "academic_year": null,
+    "start_date": null,
+    "end_date": null,
+    "schedule_notes": null
   },
   {
     "id": 4,
@@ -53,7 +65,11 @@
     "created_by": 1,
     "created_at": "2026-10-13T21:00:12.236128+05:30",
     "updated_at": "2026-10-13T21:00:12.236128+05:30",
-    "fee_amount": null
+    "fee_amount": null,
+    "academic_year": null,
+    "start_date": null,
+    "end_date": null,
+    "schedule_notes": null
   },
   {
     "id": 5,
@@ -67,6 +83,28 @@
     "created_by": 1,
     "created_at": "2026-10-13T21:00:12.236128+05:30",
     "updated_at": "2026-10-13T21:00:12.236128+05:30",
-    "fee_amount": 600
+    "fee_amount": 600,
+    "academic_year": null,
+    "start_date": null,
+    "end_date": null,
+    "schedule_notes": null
+  },
+  {
+    "id": 6,
+    "code": "PGS-2627",
+    "title": "MIATA Postgraduate Sonography",
+    "description": "One hour per lecturer per week while that lecturer’s module is active • 26-week programme framework",
+    "category": null,
+    "duration_value": 26,
+    "duration_unit": "weeks",
+    "is_active": true,
+    "created_by": 1,
+    "created_at": "2026-10-22T11:39:53.729264+05:30",
+    "updated_at": "2026-10-22T11:39:53.729264+05:30",
+    "fee_amount": null,
+    "academic_year": "2026–2027",
+    "start_date": "2026-10-19",
+    "end_date": "2027-04-18",
+    "schedule_notes": "Each row represents a programme week. Dr. Niveditha’s session is on Sunday. Dr. Bagyavasan’s session is planned for a weekday. The remaining lecturer sessions can be arranged on mutually agreed days. A lecturer’s stream ends when the listed module is complete; the timetable does not extend that stream simply to fill six months.\nThis is a 26-week programme framework from 19 October 2026 to 18 April 2027. Week ranges are planning periods; confirm exact class dates and times with each lecturer.\nTarget delivery is one hour per lecturer per week while that lecturer’s module is active. This is a five-hour weekly teaching load at the start of the programme, subject to lecturer availability.\nDr. Niveditha’s classes are scheduled for Sundays, not Saturdays.\nDr. Bagyavasan’s classes are scheduled on weekdays, as requested.\nDr. Saranya’s gynaecology and breast syllabus is planned to conclude in Week 8. Dr. Suzmitha’s nerves, nerve blocks and neurosonography syllabus is planned to conclude in Week 12. Jai’s MSK syllabus is planned to conclude in Week 24. These are proposed end points and can be brought forward if learning outcomes are achieved sooner.\nAfter a lecturer’s module is complete, that lecturer’s weekly class stops; the remaining weeks are not filled with repetitive sessions. The programme may continue through other active modules, integration, revision and final assessments.\nScheduled teaching hours are not a substitute for supervised scanning practice, clinical placement, competency sign-off or clinical experience. These should be arranged and recorded separately.\nNerve blocks and other invasive procedures must be taught within applicable professional scope, credentialling, consent, supervision and patient-safety requirements.\nCardiac ultrasound and echocardiography are excluded from this revised curriculum."
   }
 ]
