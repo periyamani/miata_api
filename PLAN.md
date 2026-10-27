@@ -88,16 +88,21 @@ the role chosen on the login page (`ROLE_MISMATCH`).
 | 19 | Course lecturers and the full curriculum (migration 016): `course_lecturers` (lecturer columns moved off modules, data-preserving), sessions as lessons with week + lecturer in their curriculum module, `GET /admin/courses/:id/timetable` (week / module / lecturer filters), lecturer CRUD, import with dry-run preview, module mapping, professor matching and a categorised summary. Tested by tests/course-timetable.test.js (16 tests) and the mock-data test; verified in headless Chrome (41 checks); imported into `miata_mock_db` (course 7) | Done |
 | 20 | Lecturers as professors: the 2026–2027 lecturers' professor accounts created in the mock data and `miata_mock_db` (after a backup; nothing deleted) and linked; linked lecturers become the professors of the modules they teach (on link, lesson save and import, only added); module professors restricted to a course's lecturers (`422`); the import summary reports assignments and non-lecturer module professors; `GET /professor/timetable` and `GET /student/timetable` (module availability applied, no account details). Tested by tests/course-timetable.test.js (21 tests) and the mock-data test (168 in total); verified in headless Chrome across the four portals (28 checks) | Done |
 | 21 | Module status (migration 017): `module_statuses`, `GET /professor/modules`, `PUT /professor/modules/:moduleId/status`, teaching status on the admin curriculum, sample statuses in the mock data. Tested by tests/module-status.test.js (9 tests) and the mock-data test (178 in total, on a scratch database); verified in headless Chrome for admin and professor, desktop and phone width | Done |
+| 22 | Mock data cleanup: the mock data now holds only the accounts the application needs — 1 admin, the five timetable lecturers as professors, the five active enrolled students, 2 agents — and every course, module, lesson (212 topics, 96 sessions), course lecturer, module status, video and batch. Removed (after backups, in one checked transaction): the demo professors Robert Wilson, Anjali Mehta and Samuel Lee and the students Vikram, Karthik and Rahul, with their assignments, submissions, reviews, online classes, e-mails, enrolments, payments, activity entries and files, and the six sample enquiries. `miata_mock_db` reloaded from the cleaned files (it held leftover test fixtures). Verified: account counts, academic data identical, dry-run re-import of the PDF timetable finds nothing to change, 179 tests, headless Chrome across the four portals (41 checks), restart and re-seed add nothing, live database unchanged | Done |
 
 ## Pending tasks / next steps
 
-- **Migration 017**: run `npm run migrate` (live) and `npm run migrate -- --mock` (mock) — the API refuses to start until it is applied.
-- **Live timetable**: the live database is at 016 with only its admin. Import the 2026–2027 timetable from Courses › Import
+- **Live admins**: the live database (at 017) has two admin accounts, `admin@miata.local` (14 Oct) and `miata.admin@gmail.com`
+  (25 Oct); deactivate the one that is not wanted.
+- **Live timetable**: the live database has no courses yet. Import the 2026–2027 timetable from Courses › Import
   Timetable (enter the real course code), then create the five lecturers' professor accounts with their real e-mail addresses
   ("Create account" on the Weekly Timetable tab links each one and assigns their modules).
 - **To confirm with MIATA** (not in the documents): session start / end times, the course code and category, a fixed weekday for
   Dr. Bagyavasan, the 8 sessions placed in a module by judgement (listed in the import preview), and whether the existing
   "PG Diploma in Ultrasound" course is the same programme, and the lecturers' real e-mail addresses.
+- **Mock data gaps** (not invented): no student is enrolled in MIATA Postgraduate Sonography, and the original courses and the
+  batches have no professors, so their students have no assignments or online classes. Enrol students / assign professors from
+  the Admin portal if wanted.
 - **SMTP**: configure `SMTP_*` (and `APP_TIMEZONE`) and send a test through the real mail server. Every e-mail (welcome / set-password, online class invitations, updates, cancellations, reset, enquiry) is verified end to end through nodemailer against a local SMTP sink, but not yet against the production mail server (deliverability: SPF / DKIM for `EMAIL_FROM`'s domain).
 - **Hosting**: decide the deployment layout (same site with a reverse proxy, or separate domains with `COOKIE_SAMESITE=none` over HTTPS).
 - Shared rate-limit store (e.g. Redis) if more than one API instance will run.

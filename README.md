@@ -59,8 +59,9 @@ npm run db:mock -- --reset    # drop and reload the mock data
 - The live database starts empty. Admins exist only through `create-admin`; they then create professors, agents and students
   (who must choose their own password at first sign-in). Students can also self-register through the website.
 - Mock data lives in [`database/mock-data`](database/mock-data) (one JSON file per table + upload files). Every mock account
-  uses the password **`Miata-6C75DR9`** — e.g. `admin@miata.local`, `ramesh.agent@miata.local`, `robert.wilson@miata.local`,
-  `arun.kumar@miata.local`. The full list is in [docs/database.md](docs/database.md#mock-data).
+  uses the password **`Miata-6C75DR9`**. It holds only the accounts the application needs: 1 admin (`admin@miata.local`),
+  5 professors (the timetable's lecturers, e.g. `niveditha@miata.local`), 5 students (e.g. `arun.kumar@miata.local`) and
+  2 agents (e.g. `ramesh.agent@miata.local`). The full list is in [docs/database.md](docs/database.md#mock-data).
 - Each data source has its own upload folder, so mock files never mix with live ones.
 - `npm test` runs against the mock database: it rebuilds the schema for each test file and reloads the mock data when the
   run ends, so anything changed by hand in `miata_mock_db` is replaced.
@@ -89,7 +90,7 @@ The startup log names the database in use, e.g. `Connected to PostgreSQL databas
 | `npm run db:seed [-- --reset]` | Same as `db:mock` — seeds `MOCK_DB_NAME` with the sample data in `database/mock-data` |
 | `npm run db:compare -- <dbA> <dbB>` | Compare two databases table by table: row counts, row checksums, duplicates |
 | `npm run create-admin` | Create an Admin (interactive; `-- --non-interactive` with `ADMIN_NAME`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` for automation) |
-| `npm test` | 168 integration + unit tests against `MOCK_DB_NAME`, then reloads the mock data |
+| `npm test` | 179 integration + unit tests against `MOCK_DB_NAME`, then reloads the mock data |
 | `npm run lint` · `npm run format` | ESLint · Prettier |
 
 ## Project structure

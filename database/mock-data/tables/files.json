@@ -30,136 +30,6 @@
     "created_at": "2026-10-13T21:00:12.236128+05:30"
   },
   {
-    "id": 4,
-    "storage_key": "attachments/f22dd7e7-9898-47fa-8c80-18b71b59d9f7.pdf",
-    "original_name": "Ultrasound Physics & Instrumentation brief.pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 630,
-    "kind": "attachment",
-    "uploaded_by": 4,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 5,
-    "storage_key": "attachments/0d0ab925-1cb3-43f9-8f21-bc1d14d3c0fa.pdf",
-    "original_name": "Abdominal Ultrasound brief.pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 614,
-    "kind": "attachment",
-    "uploaded_by": 4,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 6,
-    "storage_key": "attachments/b4536662-5d0c-41d7-817e-a12c188afee3.pdf",
-    "original_name": "Obstetrics & Gynecology brief.pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 617,
-    "kind": "attachment",
-    "uploaded_by": 4,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 7,
-    "storage_key": "attachments/3d804f31-f833-4ead-9887-eca609c1f273.pdf",
-    "original_name": "Vascular & Doppler Studies brief.pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 620,
-    "kind": "attachment",
-    "uploaded_by": 4,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 8,
-    "storage_key": "attachments/cbcb5673-b449-469d-87a4-3a1e7b831dcc.pdf",
-    "original_name": "Professional Practice & Reporting brief.pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 627,
-    "kind": "attachment",
-    "uploaded_by": 4,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 9,
-    "storage_key": "submissions/73237f19-cf62-44ef-b49f-f6f4e313f9ae.pdf",
-    "original_name": "Ultrasound Physics & Instrumentation — Case Report (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 651,
-    "kind": "submission",
-    "uploaded_by": 7,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 10,
-    "storage_key": "submissions/009ee06b-e89b-4277-8412-574312fcb74f.pdf",
-    "original_name": "Abdominal Ultrasound — Case Report (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 634,
-    "kind": "submission",
-    "uploaded_by": 7,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 11,
-    "storage_key": "submissions/b43cfa94-2b10-4b10-877a-cef11a6c49f8.pdf",
-    "original_name": "Obstetrics & Gynecology — Case Report (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 637,
-    "kind": "submission",
-    "uploaded_by": 7,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 12,
-    "storage_key": "submissions/44d14208-d1f2-4c64-990f-01756bb81d69.pdf",
-    "original_name": "Ultrasound Physics & Instrumentation — Case Report (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 653,
-    "kind": "submission",
-    "uploaded_by": 8,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 13,
-    "storage_key": "submissions/8a25c49d-978f-4962-9a8f-84cdd023c03a.pdf",
-    "original_name": "Ultrasound Physics & Instrumentation — Case Report (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 652,
-    "kind": "submission",
-    "uploaded_by": 10,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 14,
-    "storage_key": "submissions/cebfe775-6358-49ea-9648-ea4b9444713c.pdf",
-    "original_name": "SPI Practice Test Reflection (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 630,
-    "kind": "submission",
-    "uploaded_by": 9,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 15,
-    "storage_key": "submissions/5b0f8a3e-6c1d-4a52-9d7e-2f4b8c1a9e01.pdf",
-    "original_name": "Abdominal Scan Logbook — Batch 2026-A (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 135,
-    "kind": "submission",
-    "uploaded_by": 7,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 16,
-    "storage_key": "submissions/c7d2e914-3a8b-4f60-b1c5-8e9d0a2f6b13.pdf",
-    "original_name": "Physics Orientation Quiz — Batch 2026-B (attempt 1).pdf",
-    "mime_type": "application/pdf",
-    "size_bytes": 137,
-    "kind": "submission",
-    "uploaded_by": 14,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
     "id": 17,
     "storage_key": "payment-proofs/3f1a9c20-0d4e-4c1a-9f2b-000000000001.png",
     "original_name": "bank-transfer-june.png",
@@ -200,16 +70,6 @@
     "created_at": "2026-09-28T21:10:00+05:30"
   },
   {
-    "id": 21,
-    "storage_key": "payment-proofs/9a3c5e10-0d4e-4c1a-9f2b-000000000005.png",
-    "original_name": "card-receipt.png",
-    "mime_type": "image/png",
-    "size_bytes": 1335,
-    "kind": "payment_proof",
-    "uploaded_by": 9,
-    "created_at": "2026-07-06T14:22:00+05:30"
-  },
-  {
     "id": 22,
     "storage_key": "payment-proofs/47d2b8f6-0d4e-4c1a-9f2b-000000000006.png",
     "original_name": "anz-transfer.png",
@@ -218,16 +78,6 @@
     "kind": "payment_proof",
     "uploaded_by": 12,
     "created_at": "2026-09-02T19:12:00+05:30"
-  },
-  {
-    "id": 23,
-    "storage_key": "payment-proofs/e0b19c37-0d4e-4c1a-9f2b-000000000007.png",
-    "original_name": "westpac-receipt.png",
-    "mime_type": "image/png",
-    "size_bytes": 1324,
-    "kind": "payment_proof",
-    "uploaded_by": 13,
-    "created_at": "2026-09-14T17:48:00+05:30"
   },
   {
     "id": 24,

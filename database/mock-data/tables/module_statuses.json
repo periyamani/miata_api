@@ -5,7 +5,7 @@
     "status": "completed",
     "started_at": "2026-10-14T10:05:00+05:30",
     "completed_at": "2026-10-14T10:05:00+05:30",
-    "updated_by": 4,
+    "updated_by": null,
     "updated_at": "2026-10-14T10:05:00+05:30"
   },
   {
@@ -14,7 +14,7 @@
     "status": "completed",
     "started_at": "2026-10-14T10:06:00+05:30",
     "completed_at": "2026-10-14T10:06:00+05:30",
-    "updated_by": 4,
+    "updated_by": null,
     "updated_at": "2026-10-14T10:06:00+05:30"
   },
   {
@@ -23,7 +23,7 @@
     "status": "in_progress",
     "started_at": "2026-10-15T09:30:00+05:30",
     "completed_at": null,
-    "updated_by": 5,
+    "updated_by": null,
     "updated_at": "2026-10-15T09:30:00+05:30"
   },
   {
@@ -32,7 +32,7 @@
     "status": "completed",
     "started_at": "2026-10-16T11:10:00+05:30",
     "completed_at": "2026-10-16T11:10:00+05:30",
-    "updated_by": 6,
+    "updated_by": null,
     "updated_at": "2026-10-16T11:10:00+05:30"
   },
   {
@@ -41,7 +41,7 @@
     "status": "in_progress",
     "started_at": "2026-10-16T11:11:00+05:30",
     "completed_at": null,
-    "updated_by": 6,
+    "updated_by": null,
     "updated_at": "2026-10-16T11:11:00+05:30"
   },
   {

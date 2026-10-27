@@ -33,28 +33,6 @@
     "created_at": "2026-10-13T21:00:34.094705+05:30"
   },
   {
-    "id": 4,
-    "actor_id": 4,
-    "action": "auth.login",
-    "entity_type": "user",
-    "entity_id": 4,
-    "description": "Dr. Robert Wilson signed in",
-    "metadata": {},
-    "ip_address": "::1",
-    "created_at": "2026-10-13T21:00:34.471668+05:30"
-  },
-  {
-    "id": 5,
-    "actor_id": 5,
-    "action": "auth.login",
-    "entity_type": "user",
-    "entity_id": 5,
-    "description": "Dr. Anjali Mehta signed in",
-    "metadata": {},
-    "ip_address": "::1",
-    "created_at": "2026-10-13T21:00:34.886157+05:30"
-  },
-  {
     "id": 6,
     "actor_id": 7,
     "action": "auth.login",
@@ -132,17 +110,6 @@
     "created_at": "2026-10-13T21:44:09.21196+05:30"
   },
   {
-    "id": 13,
-    "actor_id": 4,
-    "action": "auth.login",
-    "entity_type": "user",
-    "entity_id": 4,
-    "description": "Dr. Robert Wilson signed in",
-    "metadata": {},
-    "ip_address": "::1",
-    "created_at": "2026-10-13T21:44:12.668743+05:30"
-  },
-  {
     "id": 14,
     "actor_id": 7,
     "action": "auth.login",
@@ -174,28 +141,6 @@
     "metadata": {},
     "ip_address": "::1",
     "created_at": "2026-10-13T21:48:19.954205+05:30"
-  },
-  {
-    "id": 17,
-    "actor_id": 4,
-    "action": "auth.login",
-    "entity_type": "user",
-    "entity_id": 4,
-    "description": "Dr. Robert Wilson signed in",
-    "metadata": {},
-    "ip_address": "::1",
-    "created_at": "2026-10-13T21:48:30.195643+05:30"
-  },
-  {
-    "id": 18,
-    "actor_id": 4,
-    "action": "submission.review_started",
-    "entity_type": "submission",
-    "entity_id": 2,
-    "description": "Dr. Robert Wilson started reviewing submission #2",
-    "metadata": {},
-    "ip_address": null,
-    "created_at": "2026-10-13T21:48:38.991004+05:30"
   },
   {
     "id": 19,
@@ -249,52 +194,6 @@
     "entity_id": 3,
     "description": "Batch \"Clinical Training 2026\" created",
     "metadata": {},
-    "ip_address": null,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 24,
-    "actor_id": 4,
-    "action": "assignment.created",
-    "entity_type": "assignment",
-    "entity_id": 8,
-    "description": "Dr. Robert Wilson created assignment \"Abdominal Scan Logbook — Batch 2026-A\"",
-    "metadata": {
-      "courseId": 1,
-      "batchId": 1
-    },
-    "ip_address": null,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 25,
-    "actor_id": 6,
-    "action": "assignment.created",
-    "entity_type": "assignment",
-    "entity_id": 9,
-    "description": "Dr. Samuel Lee created assignment \"Physics Orientation Quiz — Batch 2026-B\"",
-    "metadata": {
-      "courseId": 1,
-      "batchId": 2
-    },
-    "ip_address": null,
-    "created_at": "2026-10-13T21:00:12.236128+05:30"
-  },
-  {
-    "id": 26,
-    "actor_id": 5,
-    "action": "assignment.created",
-    "entity_type": "assignment",
-    "entity_id": 10,
-    "description": "Dr. Anjali Mehta created assignment \"Obstetric Case Presentation\"",
-    "metadata": {
-      "courseId": 1,
-      "batchId": 1,
-      "studentIds": [
-        7,
-        10
-      ]
-    },
     "ip_address": null,
     "created_at": "2026-10-13T21:00:12.236128+05:30"
   },
@@ -552,81 +451,6 @@
     },
     "ip_address": null,
     "created_at": "2026-10-22T15:05:33.041346+05:30"
-  },
-  {
-    "id": 46,
-    "actor_id": 4,
-    "action": "module.completed",
-    "entity_type": "module",
-    "entity_id": 1,
-    "description": "Dr. Robert Wilson marked module \"Ultrasound Physics & Instrumentation\" (PG Diploma in Ultrasound) as Completed",
-    "metadata": {
-      "to": "completed",
-      "from": "not_started",
-      "courseId": 1
-    },
-    "ip_address": null,
-    "created_at": "2026-10-14T10:05:00+05:30"
-  },
-  {
-    "id": 47,
-    "actor_id": 4,
-    "action": "module.completed",
-    "entity_type": "module",
-    "entity_id": 2,
-    "description": "Dr. Robert Wilson marked module \"Abdominal Ultrasound\" (PG Diploma in Ultrasound) as Completed",
-    "metadata": {
-      "to": "completed",
-      "from": "not_started",
-      "courseId": 1
-    },
-    "ip_address": null,
-    "created_at": "2026-10-14T10:06:00+05:30"
-  },
-  {
-    "id": 48,
-    "actor_id": 5,
-    "action": "module.in_progress",
-    "entity_type": "module",
-    "entity_id": 3,
-    "description": "Dr. Anjali Mehta marked module \"Obstetrics & Gynecology\" (PG Diploma in Ultrasound) as In Progress",
-    "metadata": {
-      "to": "in_progress",
-      "from": "not_started",
-      "courseId": 1
-    },
-    "ip_address": null,
-    "created_at": "2026-10-15T09:30:00+05:30"
-  },
-  {
-    "id": 49,
-    "actor_id": 6,
-    "action": "module.completed",
-    "entity_type": "module",
-    "entity_id": 6,
-    "description": "Dr. Samuel Lee marked module \"Scanning Protocols\" (Clinical Training) as Completed",
-    "metadata": {
-      "to": "completed",
-      "from": "not_started",
-      "courseId": 2
-    },
-    "ip_address": null,
-    "created_at": "2026-10-16T11:10:00+05:30"
-  },
-  {
-    "id": 50,
-    "actor_id": 6,
-    "action": "module.in_progress",
-    "entity_type": "module",
-    "entity_id": 7,
-    "description": "Dr. Samuel Lee marked module \"Supervised Clinical Practice\" (Clinical Training) as In Progress",
-    "metadata": {
-      "to": "in_progress",
-      "from": "not_started",
-      "courseId": 2
-    },
-    "ip_address": null,
-    "created_at": "2026-10-16T11:11:00+05:30"
   },
   {
     "id": 51,

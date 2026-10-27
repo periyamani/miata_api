@@ -41,9 +41,9 @@ describe('mock data', () => {
 
   it('serves the mock data through the API for every role', async () => {
     const expectations = {
-      'admin@miata.local': ['admin', '/api/admin/dashboard', (d) => d.stats.totalStudents === 8],
-      'ramesh.agent@miata.local': ['agent', '/api/agent/dashboard', (d) => d.counts.total === 4],
-      'robert.wilson@miata.local': ['professor', '/api/professor/dashboard', (d) => d.stats.totalStudents > 0],
+      'admin@miata.local': ['admin', '/api/admin/dashboard', (d) => d.stats.totalStudents === 5],
+      'ramesh.agent@miata.local': ['agent', '/api/agent/dashboard', (d) => d.counts.total === 2],
+      'niveditha@miata.local': ['professor', '/api/professor/modules', (d) => d.length === 4],
       'arun.kumar@miata.local': ['student', '/api/student/dashboard', (d) => d.stats.totalCourses === 1],
     };
     for (const [email, [role, path, check]] of Object.entries(expectations)) {
@@ -55,20 +55,40 @@ describe('mock data', () => {
     }
   });
 
-  it('includes fees, payment proofs, an expired student and an agent application', async () => {
+  it('holds only the required accounts: one admin, the five lecturers as professors, five students and two agents', async () => {
+    const { rows } = await pool.query(`SELECT role, array_agg(full_name ORDER BY id) AS names FROM users WHERE is_active GROUP BY role ORDER BY role`);
+    assert.deepEqual(rows, [
+      { role: 'admin', names: ['MIATA Administrator'] },
+      { role: 'agent', names: ['Ramesh Kumar', 'Priya Nair'] },
+      { role: 'professor', names: ['Dr. Niveditha', 'Jai', 'Dr. Saranya', 'Dr. Suzmitha', 'Dr. Bagyavasan'] },
+      { role: 'student', names: ['Arun Kumar', 'Priya Sharma', 'Sneha Reddy', 'Meera Iyer', 'Divya Pillai'] },
+    ]);
+    const { rows: inactive } = await pool.query('SELECT count(*)::int AS n FROM users WHERE NOT is_active');
+    assert.equal(inactive[0].n, 0);
+  });
+
+  it('includes fees, payment proofs, batches and agent referrals for the students', async () => {
     const login = await api().post('/api/auth/login').send({ email: 'arun.kumar@miata.local', password: MOCK_PASSWORD, role: 'student' });
     const fees = await api().get('/api/student/fees').set('Authorization', `Bearer ${login.body.data.accessToken}`);
     assert.deepEqual(fees.body.data.totals, { payable: 26000, paid: 10000, pending: 6000, balance: 16000 });
     assert.equal(fees.body.data.payments.length, 2);
 
-    const expired = await api()
-      .post('/api/auth/login')
-      .send({ email: 'vikram.singh@miata.local', password: MOCK_PASSWORD, role: 'student' });
-    assert.equal(expired.status, 403);
-    assert.match(expired.body.error.message, /course access period has ended/);
-
-    const { rows } = await pool.query(`SELECT source, applied_course_id FROM agent_referrals WHERE student_id = 11`);
-    assert.deepEqual(rows[0], { source: 'agent', applied_course_id: 1 });
+    const { rows } = await pool.query(
+      `SELECT u.full_name, b.name AS batch, a.full_name AS agent FROM users u
+       JOIN batch_students bs ON bs.student_id = u.id JOIN batches b ON b.id = bs.batch_id
+       LEFT JOIN agent_referrals r ON r.student_id = u.id LEFT JOIN users a ON a.id = r.agent_id
+       WHERE u.role = 'student' ORDER BY u.id`,
+    );
+    assert.deepEqual(
+      rows.map((r) => [r.full_name, r.batch, r.agent]),
+      [
+        ['Arun Kumar', 'PGDU Batch 2026-A', 'Ramesh Kumar'],
+        ['Priya Sharma', 'PGDU Batch 2026-A', 'Ramesh Kumar'],
+        ['Sneha Reddy', 'PGDU Batch 2026-A', 'Priya Nair'],
+        ['Meera Iyer', 'Clinical Training 2026', null],
+        ['Divya Pillai', 'PGDU Batch 2026-B', null],
+      ],
+    );
   });
 
   it('includes the 2026–2027 MIATA Postgraduate Sonography course with its weekly timetable', async () => {
@@ -121,13 +141,11 @@ describe('mock data', () => {
   });
 
   it('includes module statuses set by the professors who teach them', async () => {
-    const login = await api()
-      .post('/api/auth/login')
-      .send({ email: 'robert.wilson@miata.local', password: MOCK_PASSWORD, role: 'professor' });
+    const login = await api().post('/api/auth/login').send({ email: 'niveditha@miata.local', password: MOCK_PASSWORD, role: 'professor' });
     const res = await api().get('/api/professor/modules').set('Authorization', `Bearer ${login.body.data.accessToken}`);
     assert.deepEqual(
       res.body.data.map((m) => m.teachingStatus),
-      ['completed', 'completed', 'in_progress', 'not_started', 'not_started'],
+      ['in_progress', 'not_started', 'not_started', 'not_started'],
     );
     const { rows } = await pool.query(`SELECT count(*)::int AS n FROM module_statuses WHERE status = 'in_progress'`);
     assert.equal(rows[0].n, 7);

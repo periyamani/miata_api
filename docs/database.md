@@ -50,18 +50,24 @@ assignment attachments, submissions, payment proofs). `npm run db:mock` creates 
 foreign-key order in one transaction, moves the id and code sequences past the loaded rows, and copies the files to
 `MOCK_UPLOAD_DIR`. Refresh tokens, reset tokens and migration records are never part of mock data.
 
-Every mock account uses the password `Miata-6C75DR9` (mock data only). Accounts: `admin@miata.local`;
-agents `ramesh.agent@` and `priya.agent@`; professors `robert.wilson@`, `anjali.mehta@`, `samuel.lee@` and the 2026–2027 timetable's lecturers `niveditha@`, `jai@`,
-`saranya@`, `suzmitha@`, `bagyavasan@` (sample addresses: the documents give none); students `arun.kumar@`,
-`priya.sharma@`, `vikram.singh@`, `sneha.reddy@`, `karthik.balaji@`, `meera.iyer@`, `divya.pillai@` and the deactivated
-`rahul.menon@` (all `@miata.local`). `vikram.singh@` cannot sign in either: his only course (ARDMS, 3 months) ended on 4 Oct
-2026, so his account was deactivated automatically (`deactivated_reason = 'course_expired'`).
+Every mock account uses the password `Miata-6C75DR9` (mock data only). The mock data holds exactly the accounts the
+application needs, all active: the admin `admin@miata.local`; agents `ramesh.agent@` and `priya.agent@`; the 2026–2027
+timetable's lecturers as the five professors — `niveditha@`, `jai@`, `saranya@`, `suzmitha@`, `bagyavasan@` (sample
+addresses: the documents give none); and five students — `arun.kumar@`, `priya.sharma@`, `sneha.reddy@`, `meera.iyer@`,
+`divya.pillai@` (all `@miata.local`). The demo professors and students of the original dataset were removed on 26 Oct 2026,
+with the records that existed only because of them (their assignments, submissions, reviews, online classes and e-mails,
+enrolments, payments, activity entries and files), as were the sample enquiries; every course, module, lesson, video and batch
+was kept.
 
 Fees and payments in the mock data (currency AUD, with sample transfer instructions): the PG Diploma costs $36,000, Clinical
 Training $8,000 and ARDMS Preparation $2,500. Arun has a $10,000 scholarship, one approved and one pending payment; Priya
-Sharma has an approved and a rejected payment; Divya has a pending payment; Sneha has paid nothing yet. Every payment has a
-proof image in `uploads/payment-proofs`. Karthik was registered by the agent Priya with **Apply Now** for the PG Diploma and
-is not yet enrolled.
+Sharma has an approved and a rejected payment; Meera has an approved payment; Divya has a pending payment; Sneha has paid
+nothing yet. Every payment has a proof image in `uploads/payment-proofs`. Ramesh referred Arun and Priya Sharma; Priya Nair
+referred Sneha.
+
+Courses: PG Diploma in Ultrasound (`PGDU`), Clinical Training (`CLIN`), ARDMS Preparation (`ARDMS`), Paid Internship
+(`PINT`) and Continuing Education in Sonography (`CEU`) from the original dataset, with their modules, lessons and three
+videos, and the course below.
 
 **MIATA Postgraduate Sonography** (course 6, code `PGS-2627` — a sample code: the source documents give none) holds the
 2026–2027 curriculum and revised weekly timetable, created by the real import (`POST /admin/timetable-templates/pg-sonography-2026-27/import`):
@@ -69,19 +75,19 @@ academic year 2026–2027, 19 Oct 2026 – 18 Apr 2027 (26 weeks); the 14 curric
 revised timetable's Peripheral Nerve Sonography, Nerve Blocks and Neurosonography module; five course lecturers —
 Dr. Niveditha (Sunday), Jai, Dr. Saranya and Dr. Suzmitha (mutually agreed days), Dr. Bagyavasan (weekday), one-hour
 sessions, times not set, each linked to their professor account and assigned as professor of the modules they teach
-(17 module assignments, no others on the course) — and their 96 weekly sessions, each in its module. The cardiac module is in the catalogue but not scheduled.
+(17 module assignments, no others on the course) — and their 96 weekly sessions, each in its module. The cardiac module is
+in the catalogue but not scheduled. No student is enrolled in it yet.
 
-Module statuses in the mock data: on the PG Diploma, Robert Wilson has marked Ultrasound Physics and Abdominal Ultrasound
-Completed and Anjali Mehta has Obstetrics & Gynecology In Progress; on Clinical Training, Samuel Lee has Scanning Protocols
-Completed and Supervised Clinical Practice In Progress; on MIATA Postgraduate Sonography, the five modules with week-1 sessions
-are In Progress, each marked by its lecturer on 23 Oct 2026. Every other module is Not Started.
+Module statuses in the mock data: on the PG Diploma, Ultrasound Physics & Instrumentation and Abdominal Ultrasound are
+Completed and Obstetrics & Gynecology In Progress; on Clinical Training, Scanning Protocols is Completed and Supervised
+Clinical Practice In Progress (marked by professors no longer in the data, so "updated by" is empty); on MIATA Postgraduate
+Sonography, the five modules with week-1 sessions are In Progress, each marked by its lecturer on 23 Oct 2026. Every other
+module is Not Started.
 
-Batches in the mock data: **PGDU Batch 2026-A** (PG Diploma; students Arun, Priya Sharma, Sneha; professors Robert Wilson and
-Anjali Mehta), **PGDU Batch 2026-B** (PG Diploma; Divya and the deactivated Rahul; Samuel Lee) and **Clinical Training 2026**
-(Meera; Samuel Lee). Vikram and Karthik are in no batch. Robert teaches the PG Diploma as a course professor but sees only
-batch 2026-A's students, because batch 2026-B belongs to Samuel. Batch work: a logbook for 2026-A, an orientation quiz for
-2026-B and a case presentation for two selected 2026-A students (Arun and Sneha); the "Abdominal Scanning Fundamentals" video
-is restricted to 2026-A.
+Batches in the mock data: **PGDU Batch 2026-A** (PG Diploma; students Arun, Priya Sharma, Sneha), **PGDU Batch 2026-B**
+(PG Diploma; Divya) and **Clinical Training 2026** (Meera); the "Abdominal Scanning Fundamentals" video is restricted to
+2026-A. The original courses and the batches have no professors assigned yet, and so no assignments, submissions or online
+classes.
 
 ### How the existing data was migrated
 
